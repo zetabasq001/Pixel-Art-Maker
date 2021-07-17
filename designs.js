@@ -1,5 +1,9 @@
 // Select color input
+var color;
 const colorInput = document.querySelector('#colorPicker');
+colorInput.addEventListener('input', function(event){
+  color = event.target.value;
+});
 
 // Select size input
 const sizeInputHeight = document.querySelector('#inputHeight');
