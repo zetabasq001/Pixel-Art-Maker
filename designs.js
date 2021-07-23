@@ -22,7 +22,7 @@ table.addEventListener('click', toggleColor);
 function toggleColor(event) {
   //Toggle one pixel per click
   if(event.target.nodeName === 'TD'){
-    
+
     //Toggle pixel color on
     if(!event.target.hasAttribute('style')){
 
