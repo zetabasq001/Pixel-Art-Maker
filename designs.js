@@ -13,27 +13,31 @@ const sizeSubmit = document.getElementById('sizePicker')[2];
 
 //When size is submitted by the user, call makeGrid()
 sizeSubmit.addEventListener('click', makeGrid);
-const table = document.getElementById('pixelCanvas');
 
+//When pixel is clicked, call toggleColor()
+const table = document.getElementById('pixelCanvas');
 table.addEventListener('click', toggleColor);
 
+//Function toggles color on square of grid
 function toggleColor(event) {
 
-  if(!event.target.hasAttribute('style')){
+  if(event.target.nodeName === 'TD'){
+    if(!event.target.hasAttribute('style')){
 
-    event.target.toggleAttribute('style');
-    event.target.style.backgroundColor = colorType;
+      event.target.toggleAttribute('style');
+      event.target.style.backgroundColor = colorType;
 
-  } else {
+    } else {
 
-    event.target.toggleAttribute('style');
-    
+      event.target.toggleAttribute('style');
+    }
   }
 }
 
+//Function builds table grid
 function makeGrid(event) {
-  // Your code goes here!
 
+  // Your code goes here!
   while(table.hasChildNodes()){
     table.removeChild(table.childNodes[0]);
   }
