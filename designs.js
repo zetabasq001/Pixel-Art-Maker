@@ -1,9 +1,9 @@
 //Select color input
-let color = '#000000';
 const colorInput = document.getElementById('colorPicker');
+let colorType = colorInput.value;
 
 colorInput.addEventListener('input', function(event){
-  color = event.target.value;
+  colorType = event.target.value;
 });
 
 //Select size input
@@ -13,10 +13,27 @@ const sizeSubmit = document.getElementById('sizePicker')[2];
 
 //When size is submitted by the user, call makeGrid()
 sizeSubmit.addEventListener('click', makeGrid);
+const table = document.getElementById('pixelCanvas');
+
+table.addEventListener('click', toggleColor);
+
+function toggleColor(event) {
+
+  if(!event.target.hasAttribute('style')){
+
+    event.target.toggleAttribute('style');
+    event.target.style.backgroundColor = colorType;
+
+  } else {
+
+    event.target.toggleAttribute('style');
+    
+  }
+}
 
 function makeGrid(event) {
   // Your code goes here!
-  const table = document.getElementById('pixelCanvas');
+
   while(table.hasChildNodes()){
     table.removeChild(table.childNodes[0]);
   }
